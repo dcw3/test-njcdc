@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import dj_database_url
 import django_heroku
+import json
+import urlparse
 from .settings_common import *
 
 ALLOWED_HOSTS = [".herokuapp.com/", "127.0.0.1", "njcdc.herokuapp.com"]
@@ -33,3 +35,14 @@ DATABASES['default'].update(db_from_env)
 django_heroku.settings(locals())
 
 SESSION_COOKIE_DOMAIN = "njcdc.herokuapp.com"
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_bmemcached.memcached.BMemcached',
+        'LOCATION': os.environ.get('MEMCACHEDCLOUD_SERVERS').split(','),
+        'OPTIONS': {
+                    'username': os.environ.get('MEMCACHEDCLOUD_USERNAME'),
+                    'password': os.environ.get('MEMCACHEDCLOUD_PASSWORD')
+            }
+    }
+}
