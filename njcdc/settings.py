@@ -11,7 +11,6 @@ import os
 import dj_database_url
 import django_heroku
 import json
-import urlparse
 from .settings_common import *
 
 ALLOWED_HOSTS = [".herokuapp.com/", "127.0.0.1", "njcdc.herokuapp.com"]
