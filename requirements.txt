@@ -1,0 +1,9 @@
+django
+gunicorn
+django-heroku
+whitenoise
+psycopg2-binary
+dj_database_url
+pandas
+python-binary-memcached
+django-bmemcached
