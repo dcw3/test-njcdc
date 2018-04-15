@@ -7,3 +7,4 @@ dj_database_url
 pandas
 python-binary-memcached
 django-bmemcached
+json
