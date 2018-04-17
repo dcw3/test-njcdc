@@ -51,10 +51,10 @@ def input(request):
     return HttpResponse(template.render(context, request))
 
 def results(request):
-    # s = request.session  # session test code from Changyan
-    # m = s.modified
-    # i = s.items()
-    # up = s["user"]
+    s = request.session  # session test code from Changyan
+    m = s.modified
+    i = s.items()
+    up = s["user"]
     up = request.session["user"]
 
     up.calculate_net()
