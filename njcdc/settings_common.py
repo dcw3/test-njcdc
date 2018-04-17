@@ -56,6 +56,18 @@ MIDDLEWARE = [
 # simple cached data
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django_bmemcached.memcached.BMemcached',
+        'LOCATION': os.environ.get('MEMCACHEDCLOUD_SERVERS').split(','),
+        'OPTIONS': {
+                    'username': os.environ.get('MEMCACHEDCLOUD_USERNAME'),
+                    'password': os.environ.get('MEMCACHEDCLOUD_PASSWORD')
+            }
+    }
+}
+
+
 ROOT_URLCONF = 'njcdc.urls'
 
 TEMPLATES = [
